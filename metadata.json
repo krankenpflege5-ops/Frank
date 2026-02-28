@@ -1,0 +1,5 @@
+{
+  "name": "Watermark Remover",
+  "description": "Remove watermarks and unwanted elements from images using Gemini AI.",
+  "requestFramePermissions": []
+}
