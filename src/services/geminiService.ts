@@ -4,9 +4,9 @@ let ai: GoogleGenAI | null = null;
 
 export async function removeWatermark(base64Image: string, mimeType: string, prompt: string = "Remove the watermark from this image") {
   if (!ai) {
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY || (import.meta as any).env.VITE_GEMINI_API_KEY;
     if (!apiKey) {
-      throw new Error("Gemini API Key is missing. Please set the GEMINI_API_KEY environment variable.");
+      throw new Error("Gemini API Key is missing. Please set the VITE_GEMINI_API_KEY environment variable in your Vercel project settings.");
     }
     ai = new GoogleGenAI({ apiKey });
   }
